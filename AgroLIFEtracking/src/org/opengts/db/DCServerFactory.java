@@ -142,6 +142,7 @@ public class DCServerFactory
     public static final String  ASPICORE_NAME                   = "aspicore";       // [31265] 3x265
     public static final String  TK10X_NAME                      = "tk10x";          // [31272] 3x272
     public static final String  TAIP_NAME                       = "taip";           // [31275] 3x275
+    public static final String  GENEKO_NAME                     = "geneko";         // [31313]
 
     // ------------------------------------------------------------------------
     // ------------------------------------------------------------------------

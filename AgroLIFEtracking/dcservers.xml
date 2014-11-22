@@ -856,5 +856,92 @@
 
     <!-- ================================================================================ -->
 
+    <DCServer name="geneko">
+    
+        <!--
+         === DCS Description
+         -->
+        <Description><![CDATA[
+            Geneko Fox AVL Lite
+            ]]></Description>
+
+        <!-- 
+         === Possible Unique-ID prefixes ("*" means that the mobile-id is used as-is)
+         === Example: If the mobile-id is "123456789012345", then the "Unique ID" value
+         === set in the Device admin page can be one of the following:
+         ===   astra_123456789012345
+         ===   imei_123456789012345
+         ===   123456789012345
+         ===   <etc.>
+         -->
+        <UniqueIDPrefix><![CDATA[
+            ]]></UniqueIDPrefix>
+            
+        <!-- 
+         === Listen ports
+         -->
+        <ListenPorts 
+            tcpPort="31313" 
+            udpPort="31313"
+            />
+            
+        <!--
+         === DCS runtime properties
+         -->
+        <Properties>
+        
+            <Property key="minimumSpeedKPH">5.0</Property>
+            <!--
+             === "minimumSpeedKPH" - The minimum speed value, below which the device will
+             === be assumed to be stopped, and the 'speed' will be explicitly set to '0.0'.
+             -->
+
+            <Property key="statusLocationInMotion">false</Property>
+            <!--
+             === "statusLocationInMotion" - If true, the DCS will replace an event with a
+             === STATUS_LOCATION status code with a STATUS_MOTION_IN_MOTION status code, if
+             === the speed of the vehicle is greater than zero.
+             -->
+
+            <Property key="minimumMovedMeters">0</Property>
+            <!--
+             === "minimumMovedMeters" - if > '0', subsequent received events will be omitted if
+             === they are within the specified number of meters to the previous event.  Useful
+             === for eliminating multiple events at the same location, when the device continues
+             === to periodically report a location even if the device is stopped.
+             -->
+             
+            <Property key="estimateOdometer">false</Property>
+            <!-- 
+             === "estimateOdometer" - If true, the DCS will calculate the current event odometer
+             === based on the distance traveled since the last valid GPS location
+             -->
+             
+            <Property key="simulateGeozones">false</Property>
+            <!--
+             === "simulateGeozones" - If true, the DCS will check for geozone arrivals/departures
+             === and insert the appropriate arrive/depart events.
+             -->
+ 
+            <Property key="tcpIdleTimeoutMS">600000</Property>
+            <Property key="tcpPacketTimeoutMS">600000</Property>
+            <Property key="tcpSessionTimeoutMS">600000</Property>
+            <!-- 
+             === TCP Connection timeouts
+             -->
+
+            <Property key="udpIdleTimeoutMS">6000</Property>
+            <Property key="udpPacketTimeoutMS">8000</Property>
+            <Property key="udpSessionTimeoutMS">20000</Property>
+            <!-- 
+             === UDP Connection timeouts
+             -->
+
+            </Properties>
+            
+    </DCServer>
+
+    <!-- ================================================================================ -->
+
 </DCServerConfig>
 
