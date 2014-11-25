@@ -43,9 +43,9 @@ public abstract class GPSData {
 	protected double calculateCoordinate(char hemisphere, int wholePartMSB, 
     		int wholePartLSB, int decimalPartMSB, int decimalPartLSB) 
     {
-    	double coordinate = (((wholePartMSB * 256 + wholePartLSB) + ((decimalPartMSB * 256 + decimalPartLSB) / 10000))) / 60;
+    	double coordinate = (((double)(wholePartMSB * 256 + wholePartLSB) + ((double)(decimalPartMSB * 256 + decimalPartLSB) / 10000.0D))) / 60.0D;
 		if((hemisphere == 'S') || (hemisphere == 'W')) {
-			coordinate *= -1;
+			coordinate *= -1.0D;
 		}
     	return coordinate;
     }
